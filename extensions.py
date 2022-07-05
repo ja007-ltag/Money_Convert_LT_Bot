@@ -33,5 +33,5 @@ class Converter:
         total_base = json.loads(r.content)
         total_base = total_base[base_ticker] * amount
 
-        return total_base
+        return round(total_base, 2)
 
