@@ -93,12 +93,7 @@ def handle_convert(message: telebot.types.Message):
     try:
         if len(values) != 3:
             raise APIException("Не верное количество параметров")
-    except APIException as e:
-        bot.reply_to(message, f'Ошибка ввода параметров!\n{e}')
-
-    base, quote, amount = values
-
-    try:
+        base, quote, amount = values
         total_base = Converter.get_price(base, quote, amount)
     except APIException as e:
         bot.reply_to(message, f'Ошибка ввода параметров!\n{e}')
